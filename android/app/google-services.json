@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "685501910062",
+    "project_id": "flutter-bloc-switch",
+    "storage_bucket": "flutter-bloc-switch.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:685501910062:android:be55cc9a2b46ae3ec1a3bf",
+        "android_client_info": {
+          "package_name": "com.example.bloc_switch"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCj1PX_-M4xz07UWEOoLlzX7FwdCg72Bxc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
