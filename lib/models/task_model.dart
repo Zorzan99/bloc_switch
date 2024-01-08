@@ -5,22 +5,13 @@ class TaskModel {
   final String description;
   final String id;
 
-  TaskModel({
-    required this.title,
-    required this.description,
-    required this.id,
-  });
+  TaskModel({required this.title, required this.description, required this.id});
 
-  TaskModel copyWith({
-    String? title,
-    String? description,
-    String? id,
-  }) {
+  TaskModel copyWith({String? title, String? description, String? id}) {
     return TaskModel(
-      title: title ?? this.title,
-      description: description ?? this.description,
-      id: id ?? this.id,
-    );
+        title: title ?? this.title,
+        description: description ?? this.description,
+        id: id ?? this.id);
   }
 
   Map<String, dynamic> toMap() {
