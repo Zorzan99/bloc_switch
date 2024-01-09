@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:bloc_switch/core/exceptions/auth_exception.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import './register_repository.dart';
@@ -27,14 +28,15 @@ class RegisterRepositoryImpl implements RegisterRepository {
         final loginTypes =
             await _firebaseAuth.fetchSignInMethodsForEmail(email);
         if (loginTypes.contains('password')) {
-          throw Exception(
-              'E-mail já utilizado, por favor escolha outro e-mail');
+          throw AuthException(
+              message: 'E-mail já utilizado, por favor escolha outro e-mail');
         } else {
-          throw Exception(
-              'Você se cadastrou no TodoList pelo Google, por favor utilize ele para efetuar o login');
+          throw AuthException(
+              message:
+                  'Você se cadastrou no TodoList pelo Google, por favor utilize ele para efetuar o login');
         }
       } else {
-        throw Exception(e.message ?? 'Erro ao registrar usuário');
+        throw AuthException(message: e.message ?? 'Erro ao registrar usuário');
       }
     }
   }

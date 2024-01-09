@@ -1,7 +1,8 @@
+import 'package:bloc_switch/core/global_binding/global_binding.dart';
 import 'package:bloc_switch/firebase_options.dart';
 import 'package:bloc_switch/pages/home/home_page.dart';
 import 'package:bloc_switch/pages/login/login_page.dart';
-import 'package:bloc_switch/pages/register/register_page.dart';
+import 'package:bloc_switch/pages/register/register_router.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -19,18 +20,20 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-        useMaterial3: true,
+    return GlobalBinding(
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+          useMaterial3: true,
+        ),
+        routes: {
+          "/": (context) => const LoginPage(),
+          "/register": (context) => RegisterRouter.page,
+          "/home": (context) => const HomePage(),
+        },
+        initialRoute: "/",
       ),
-      routes: {
-        "/": (context) => const LoginPage(),
-        "/register": (context) => const RegisterPage(),
-        "/home": (context) => const HomePage(),
-      },
-      initialRoute: "/",
     );
   }
 }
