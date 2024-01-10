@@ -76,7 +76,13 @@ class _RegisterPageState extends State<RegisterPage> {
                   const SizedBox(height: 32.0),
                   ElevatedButton(
                     onPressed: () {
-                      if (_formKey.currentState!.validate()) {}
+                      final valid = _formKey.currentState?.validate() ?? false;
+                      if (valid) {
+                        context.read<RegisterCubit>().register(
+                            _emailController.text,
+                            _passwordController.text,
+                            _nameController.text);
+                      }
                     },
                     child: const Text('Registrar'),
                   ),
