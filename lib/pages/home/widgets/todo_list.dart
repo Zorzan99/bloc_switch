@@ -1,4 +1,4 @@
-import 'package:bloc_switch/models/task_model.dart';
+import 'package:bloc_switch/core/models/task_model.dart';
 import 'package:bloc_switch/pages/home/widgets/home_form_fiel.dart';
 import 'package:bloc_switch/pages/home/widgets/todo_item.dart';
 import 'package:firebase_auth/firebase_auth.dart';

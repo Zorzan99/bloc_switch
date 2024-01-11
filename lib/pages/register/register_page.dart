@@ -1,3 +1,5 @@
+import 'package:bloc_switch/core/custom_snackbar/custom_snackbar.dart';
+import 'package:bloc_switch/core/loader/loader.dart';
 import 'package:bloc_switch/pages/register/register_cubit.dart';
 import 'package:bloc_switch/pages/register/register_state.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +13,7 @@ class RegisterPage extends StatefulWidget {
   State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _RegisterPageState extends State<RegisterPage> {
+class _RegisterPageState extends State<RegisterPage> with Loader {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
@@ -29,11 +31,14 @@ class _RegisterPageState extends State<RegisterPage> {
       listener: (context, state) {
         switch (state.status) {
           case RegisterStatus.initial:
-          case RegisterStatus.loading: //mostrar showloader
+          case RegisterStatus.loading:
+            showLoader();
           case RegisterStatus.register:
+            hideLoader();
             Navigator.of(context)
-                .pushNamedAndRemoveUntil('/', (route) => false); //hideloader ;
-          case RegisterStatus.error: // hidelaoder, error
+                .pushNamedAndRemoveUntil('/', (route) => false);
+            CustomSnackbar.showSnackbar(context, "Conta criada com sucesso");
+          case RegisterStatus.error:
         }
       },
       builder: (context, state) {

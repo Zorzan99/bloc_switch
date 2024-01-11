@@ -1,4 +1,4 @@
-import 'package:bloc_switch/models/task_model.dart';
+import 'package:bloc_switch/core/models/task_model.dart';
 
 abstract interface class HomeRepository {
   Future<TaskModel> addTask(String userId, TaskModel task);

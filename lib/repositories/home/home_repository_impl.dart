@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:bloc_switch/models/task_model.dart';
+import 'package:bloc_switch/core/models/task_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import './home_repository.dart';
